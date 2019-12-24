@@ -1,36 +1,9 @@
-# Advanced Script Template
+# PingCRM (ColdBox Edition)
 
-An advanced template with all the bells and whistles in script format
-
-## License
-
-Apache License, Version 2.0.
-
-## Important Links
-
-Source Code
-
-- https://github.com/coldbox-templates/advanced-script
-
-## Quick Installation
-
-Each application templates contains a `box.json` so it can leverage [CommandBox](http://www.ortussolutions.com/products/commandbox) for its dependencies.  
-Just go into each template directory and type:
-
-```bash
-box install
-```
-
-This will setup all the needed dependencies for each application template.  You can then type:
-
-```bash
-box server start
-```
-
-And run the application.
-
----
- 
-### THE DAILY BREAD
-
- > "I am the way, and the truth, and the life; no one comes to the Father, but by me (JESUS)" Jn 14:1-12
+1. Install CFML dependencies with CommandBox.
+2. Install Node dependencies with NPM.
+3. Run ColdBox Elixir using `npm run dev`
+4. Create a database and seed the `.env` file.
+5. Run the migrations.
+6. Start the server.
+7. Log in with `johndoe@example.com` and `secret`.
