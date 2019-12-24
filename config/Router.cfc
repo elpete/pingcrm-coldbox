@@ -11,6 +11,8 @@ component{
                 "POST": "create"
             } );
 
+        post( "logout", "sessions.destroy" );
+
         route( "/" ).to( "dashboard.index" );
 
         resources( "users" );

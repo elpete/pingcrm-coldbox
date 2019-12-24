@@ -22,4 +22,9 @@ component {
         }
     }
 
+    function destroy( event, rc, prc ) secured {
+        auth.logout();
+        relocate( uri = "/login" );
+    }
+
 }
