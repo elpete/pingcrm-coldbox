@@ -18,3 +18,9 @@ coldbox/*
 testbox/*
 modules/*
 **/apidocs/**
+
+## Build artifacts
+includes/images
+includes/js
+includes/css
+includes/rev-manifest.json

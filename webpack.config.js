@@ -1,5 +1,18 @@
 const elixir = require("coldbox-elixir");
-const path = require("path");
+
+elixir.config.mergeConfig( {
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                shared: {
+                    chunks: "async",
+                    minChunks: 2,
+                    name: "includes/js/pages/shared"
+                }
+            }
+        }
+    }
+} );
 
 module.exports = elixir(mix => {
     mix.css("app.css");
