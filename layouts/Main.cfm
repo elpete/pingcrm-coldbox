@@ -15,7 +15,6 @@
     <script src="#html.elixirPath( "/js/runtime.js" )#"></script>
     <script src="#html.elixirPath( "/js/vendor.js" )#"></script>
     <script src="#html.elixirPath( "/js/app.js" )#"></script>
-    <cfabort />
 </body>
 </html>
 </cfoutput>

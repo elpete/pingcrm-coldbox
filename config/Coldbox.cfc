@@ -60,13 +60,6 @@ component{
             }
         }
 
-		// environment settings, create a detectEnvironment() method to detect it yourself.
-		// create a function with the name of the environment so it can be executed if that environment is detected
-		// the value of the environment is a list of regex patterns to match the cgi.http_host.
-		environments = {
-			development = "localhost,^127\.0\.0\.1"
-		};
-
 		// Module Directives
 		modules = {
 			// An array of modules names to load, empty means all of them

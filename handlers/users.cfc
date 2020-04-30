@@ -15,8 +15,7 @@ component secured {
                         "name" = user.getName(),
                         "email" = user.getEmail(),
                         "owner" = user.getOwner(),
-                        "photo" = user.getPhotoPath(),
-                        "deleted_at" = user.getDeletedDate(),
+                        "photo" = user.getPhotoPath()
                     }
                 } )
         } );
@@ -30,7 +29,7 @@ component secured {
         var data = validateOrFail( target = rc, constraints = {
             "first_name": { "required": true, "size": "1..50" },
             "last_name": { "required": true, "size": "1..50" },
-            "email": { "required": true, "size": "1..50", "type": "email" }, // add unique rule
+            "email": { "required": true, "size": "1..50", "type": "email" }, // TODO: add unique rule
             "password": { "required": false },
             "owner": { "required": true, "type": "boolean" }
         } );
@@ -56,15 +55,15 @@ component secured {
                 "last_name": user.getLastName(),
                 "email": user.getEmail(),
                 "owner": user.getOwner(),
-                "photo": user.getPhotoPath(),
-                "deleted_at": user.getDeletedDate()
+                "photo": user.getPhotoPath()
             }
         } );
     }
 
     function update( event, rc, prc ) {
         var user = auth().user().getAccount().users().findOrFail( rc.id );
-        var data = validateOrFail( target = rc, constraints = {
+
+        validateOrFail( target = rc, constraints = {
             "first_name": { "required": true, "size": "1..50" },
             "last_name": { "required": true, "size": "1..50" },
             "email": { "required": true, "size": "1..50", "type": "email" }, // add unique rule
@@ -72,19 +71,26 @@ component secured {
             "owner": { "required": true, "type": "boolean" }
         } );
 
-        user.update( event.getOnly( [ "first_name", "last_name", "email", "owner" ] ) );
+        user.update(
+            event.getOnly( [
+                "first_name",
+                "last_name",
+                "email",
+                "owner"
+            ] )
+        );
 
         if ( event.valueExists( "password" ) ) {
             user.update( { "password": rc.password } );
         }
 
-        relocate( event = "users.#rc.id#.edit", statusCode = 303 );
+        relocate( "users.#rc.id#.edit" );
     }
 
     function delete( event, rc, prc ) {
         auth().user().getAccount().users().findOrFail( rc.id ).delete();
 
-        relocate( event = "users", statusCode = 303 );
+        relocate( "users" );
     }
 
 }

@@ -13,7 +13,6 @@ component {
             table.string( "remember_token", 100 ).nullable();
             table.timestamp( "created_date" );
             table.timestamp( "modified_date" );
-            table.timestamp( "deleted_date" ).nullable();
         } );
     }
 

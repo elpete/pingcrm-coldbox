@@ -13,7 +13,6 @@ component extends="quick.models.BaseEntity" {
     property name="rememberToken" column="remember_token";
     property name="createdDate" column="created_date";
     property name="modifiedDate" column="modified_date";
-    property name="deletedDate" column="deleted_date";
 
     function account() {
         return belongsTo( "Account" );

@@ -33,7 +33,6 @@
             <inertia-link class="px-6 py-4 flex items-center focus:text-indigo" :href="`/users/${user.id}/edit`">
               <img v-if="user.photo" class="block w-5 h-5 rounded-full mr-2 -my-2" :src="user.photo">
               {{ user.name }}
-              <icon v-if="user.deleted_at" name="trash" class="flex-no-shrink w-3 h-3 fill-grey ml-2" />
             </inertia-link>
           </td>
           <td class="border-t">
@@ -91,12 +90,10 @@ export default {
     form: {
       handler: _.throttle(function() {
         let query = _.pickBy(this.form)
-        console.log(query);
         let url = `/users`;
         if (Object.keys(query).length > 0) {
             url += "?" + queryString.stringify(query);
         }
-        console.log("url", url);
         this.$inertia.replace(url)
       }, 150),
       deep: true,

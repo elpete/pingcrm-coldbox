@@ -27,7 +27,7 @@ component extends="coldbox.system.EventHandler" {
 		event.setHTTPHeader( statusCode = 500 );
 		//Grab Exception From private request collection, placed by ColdBox Exception Handling
 		var exception = prc.exception;
-		//Place exception handler below:
+		//Place exception handler below:z
     }
 
     function onAuthenticationFailure( event, rc, prc ) {

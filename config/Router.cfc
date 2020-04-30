@@ -16,7 +16,11 @@ component{
         route( "/" ).to( "dashboard.index" );
 
         resources( "users" );
-        route( "/users/:user/restore" ).to( "users.restore" );
+        resources( "organizations" );
+
+        route( "/500" ).toResponse( function( event, rc, prc ) {
+            throw( "Boom!  500 error." );
+        } );
 
         route( "/:handler/:action?" ).end();
 	}
